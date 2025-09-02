@@ -1,0 +1,30 @@
+services:
+  postgres:
+    container_name: postgres-container
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: shivam
+      POSTGRES_DB: dockerTutorial
+    volumes:
+    - pg_data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    networks:
+    - docker-tutorial-network
+
+  docker-tutorial:
+    container_name: docker-tutorial
+    image: docker-tutorial
+    ports:
+      - 8080:8080
+    networks:
+    - docker-tutorial-network
+
+volumes:
+  pg_data:
+
+networks:
+  docker-tutorial-network:
+    driver: bridge
+

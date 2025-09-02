@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private String url="jdbc:postgresql://docker:5432/postgres";
+    private String url = "jdbc:postgresql://postgres-container:5432/postgres";
     private String username="postgres";
     private String password="shivam";
     public Connection getConnection (){
